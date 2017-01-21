@@ -1,4 +1,4 @@
-package graph;
+package com.graph;
 
 import java.util.HashMap;
 import java.util.LinkedList;
