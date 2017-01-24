@@ -1,6 +1,7 @@
 package com.concurrency.producerconsumer;
 
-public class Drop {
+public class Drop
+{
 	// Message sent from producer to consumer.
 	private String message;
 	/*
@@ -9,12 +10,16 @@ public class Drop {
 	 */
 	private volatile boolean empty = true;
 
-	public synchronized String take() {
+	public synchronized String take()
+	{
 		// Wait until message is available.
-		while (empty) {
-			try {
+		while (empty)
+		{
+			try
+			{
 				wait();
-			} catch (InterruptedException e) {
+			} catch (InterruptedException e)
+			{
 			}
 		}
 		// Toggle status.
@@ -24,12 +29,16 @@ public class Drop {
 		return message;
 	}
 
-	public synchronized void put(String message) {
+	public synchronized void put(String message)
+	{
 		// Wait until message has been retrieved.
-		while (!empty) {
-			try {
+		while (!empty)
+		{
+			try
+			{
 				wait();
-			} catch (InterruptedException e) {
+			} catch (InterruptedException e)
+			{
 			}
 		}
 		// Toggle status.

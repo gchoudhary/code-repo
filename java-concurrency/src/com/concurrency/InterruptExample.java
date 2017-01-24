@@ -1,8 +1,11 @@
 package com.concurrency;
 
-public class InterruptExample implements Runnable {
-	public void run() {
-		for (int i = 0; i < 1000000000; i++) {
+public class InterruptExample implements Runnable
+{
+	public void run()
+	{
+		for (int i = 0; i < 1000000000; i++)
+		{
 			int k = i + 1;
 			k = i / k;
 			k = k * i;
@@ -13,7 +16,8 @@ public class InterruptExample implements Runnable {
 		System.out.println("Is thread interrupted " + Thread.currentThread().isInterrupted());
 	}
 
-	public static void main(String args[]) {
+	public static void main(String args[])
+	{
 
 		Thread t = new Thread(new InterruptExample());
 		t.start();

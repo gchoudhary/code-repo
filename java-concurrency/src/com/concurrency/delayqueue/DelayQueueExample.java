@@ -5,40 +5,50 @@ import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
-public class DelayQueueExample {
+public class DelayQueueExample
+{
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 
 		BlockingQueue<DelayedElement> blockingQueue = new DelayQueue<DelayedElement>();
 
-		try {
+		try
+		{
 			blockingQueue.put(new DelayedElement(4000, "Message with delay 4s"));
 			blockingQueue.put(new DelayedElement(2000, "Message with delay 2s"));
 			blockingQueue.put(new DelayedElement(9000, "Message with delay 9s"));
-		} catch (InterruptedException ie) {
+		} catch (InterruptedException ie)
+		{
 		}
 
-		while (!blockingQueue.isEmpty()) {
-			try {
+		while (!blockingQueue.isEmpty())
+		{
+			try
+			{
 				System.out.println(">>" + blockingQueue.take());
-			} catch (InterruptedException ie) {
+			} catch (InterruptedException ie)
+			{
 			}
 		}
 	}
 }
 
-class DelayedElement implements Delayed {
+class DelayedElement implements Delayed
+{
 
 	private long duration = 0;
 	private String message;
 
-	public DelayedElement(long duration, String name) {
+	public DelayedElement(long duration, String name)
+	{
 		this.duration = System.currentTimeMillis() + duration;
 		this.message = name;
 	}
 
 	@Override
-	public int compareTo(Delayed o) {
+	public int compareTo(Delayed o)
+	{
 
 		return (int) (this.duration - ((DelayedElement) o).getDuration());
 	}
@@ -48,29 +58,35 @@ class DelayedElement implements Delayed {
 	 * returns a value less than or equal to zero.
 	 */
 	@Override
-	public long getDelay(TimeUnit unit) {
+	public long getDelay(TimeUnit unit)
+	{
 		long diff = duration - System.currentTimeMillis();
 		return unit.convert(diff, TimeUnit.MILLISECONDS);
 	}
 
-	public long getDuration() {
+	public long getDuration()
+	{
 		return duration;
 	}
 
-	public void setDuration(long duration) {
+	public void setDuration(long duration)
+	{
 		this.duration = duration;
 	}
 
-	public String getMessage() {
+	public String getMessage()
+	{
 		return message;
 	}
 
-	public void setMessage(String message) {
+	public void setMessage(String message)
+	{
 		this.message = message;
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "DelayedElement [duration=" + duration + ", message=" + message + "]";
 	}
 }

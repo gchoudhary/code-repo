@@ -9,9 +9,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class ExecutorInvokeAllExample {
+public class ExecutorInvokeAllExample
+{
 
-	public static void main(String[] args) throws InterruptedException, ExecutionException {
+	public static void main(String[] args) throws InterruptedException, ExecutionException
+	{
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 
 		Set<Callable<String>> callables = new HashSet<Callable<String>>();
@@ -22,23 +24,27 @@ public class ExecutorInvokeAllExample {
 
 		List<Future<String>> futures = executorService.invokeAll(callables);
 
-		for (Future<String> future : futures) {
+		for (Future<String> future : futures)
+		{
 			System.out.println("future.get = " + future.get());
 		}
 		executorService.shutdown();
 	}
 }
 
-class CallableTask implements Callable<String> {
+class CallableTask implements Callable<String>
+{
 
 	String message;
 
-	public CallableTask(String message) {
+	public CallableTask(String message)
+	{
 		this.message = message;
 	}
 
 	@Override
-	public String call() throws Exception {
+	public String call() throws Exception
+	{
 		return message;
 	}
 }
