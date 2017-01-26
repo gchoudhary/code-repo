@@ -1,4 +1,4 @@
-package com.concurrency.samples;
+package com.concurrency;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -74,7 +74,6 @@ class MyRunnable implements Runnable
 						System.out.println();
 						// reset the counter
 						printJob.resetCounter();
-
 					}
 
 					printJob.notifyAll();
