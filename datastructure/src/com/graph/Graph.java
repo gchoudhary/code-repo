@@ -5,19 +5,24 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Graph<T> {
+public class Graph<T>
+{
 	Map<T, List<T>> graph;
 
-	Graph() {
+	Graph()
+	{
 		graph = new HashMap<>();
 	}
 
-	public void addEdge(T source, T dest) {
-		if (!graph.containsKey(source)) {
+	public void addEdge(T source, T dest)
+	{
+		if (!graph.containsKey(source))
+		{
 			List<T> list = new LinkedList<T>();
 			graph.put(source, list);
 		}
-		if (!graph.containsKey(dest)) {
+		if (!graph.containsKey(dest))
+		{
 			List<T> list = new LinkedList<T>();
 			graph.put(dest, list);
 		}
@@ -28,18 +33,22 @@ public class Graph<T> {
 		l.add(source);
 	}
 
-	public void traverse() {
-		for (T i : graph.keySet()) {
+	public void traverse()
+	{
+		for (T i : graph.keySet())
+		{
 			System.out.print(i + " -> ");
-			for (T l : graph.get(i)) {
+			for (T l : graph.get(i))
+			{
 				System.out.print(l + " -> ");
 			}
 			System.out.println();
 		}
 	}
 
-	public static void main(String[] args) {
-		Graph<Integer> g = new Graph();
+	public static void main(String[] args)
+	{
+		Graph<Integer> g = new Graph<Integer>();
 		g.addEdge(1, 5);
 		g.addEdge(2, 5);
 		g.addEdge(3, 4);
