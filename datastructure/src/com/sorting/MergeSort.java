@@ -28,9 +28,11 @@ public class MergeSort
 
 		int mid = length / 2;
 
+		// create temporary array
 		int[] left = new int[mid];
 		int[] right = new int[length - mid];
 
+		// populate the temporary array
 		for (int i = 0; i < mid; i++)
 		{
 			left[i] = arr[i];
