@@ -10,9 +10,9 @@ public class BuyingSelling
 
 	public static void main(String[] args)
 	{
-		int[] stockPrices = { 10, 13, 4, 6, 8 };
+		int[] stockPrices = { 10, 13, 4, 6, 9 };
 
-		System.out.println(maxProfit(stockPrices));
+		System.out.println("Profit :"+maxProfit(stockPrices));
 	}
 
 	public static int maxProfit(int[] stockPrices)
@@ -26,6 +26,7 @@ public class BuyingSelling
 			minBuyPrice = Math.min(minBuyPrice, stockPrices[i]);
 		}
 
+		System.out.println("Buying Price :"+minBuyPrice);
 		return profit;
 	}
 }
