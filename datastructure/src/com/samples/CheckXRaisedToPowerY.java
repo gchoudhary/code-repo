@@ -52,7 +52,6 @@ public class CheckXRaisedToPowerY
 					isRaised = false;
 					break;
 				}
-
 			}
 		}
 		System.out.println("CheckPower.main() :" + isRaised);
